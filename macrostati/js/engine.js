@@ -163,23 +163,22 @@
     domanda += (stato.exportLivello - s.exportPct) * 0.08;
 
     const shock = (rng() - 0.5) * 0.6;
-    let crescitaReale = clamp(crescitaPotenziale + domanda + shock, -8, 10) / 100;
+    let crescitaAnnuale = clamp(crescitaPotenziale + domanda + shock, -8, 10);
 
-    const pilRealePre = stato.pil;
-    stato.pil = stato.pil * (1 + crescitaReale);
+    stato.pil = stato.pil * (1 + crescitaAnnuale / 400);
 
     stato.inflazione = clamp(
       stato.inflazione
         + (2.0 - stato.inflazione) * 0.06
-        + (crescitaReale * 100 - s.crescitaBase) * 0.35
-        + (stato.disoccupazione < 5 ? 0.15 : 0)
-        + (stato.spesaPct > 50 ? 0.2 : 0)
+        + (crescitaAnnuale - s.crescitaBase) * 0.09
+        + (stato.disoccupazione < 5 ? 0.04 : 0)
+        + (stato.spesaPct > 50 ? 0.05 : 0)
         + (rng() - 0.5) * 0.4,
       -1, 15
     );
 
     stato.disoccupazione = clamp(
-      stato.disoccupazione - (crescitaReale * 100) * 0.35 - (stato.innovation - 40) * 0.01 + (rng() - 0.5) * 0.3,
+      stato.disoccupazione - crescitaAnnuale * 0.35 - (stato.innovation - 40) * 0.01 + (rng() - 0.5) * 0.3,
       2, 40
     );
 
@@ -191,7 +190,7 @@
     stato.consenso = clamp(
       stato.consenso
         + (50 - stato.consenso) * 0.03
-        + (crescitaReale * 100) * 0.8
+        + crescitaAnnuale * 0.8
         + (stato.inflazione > 4 ? -3 : stato.inflazione < 2 ? 1 : 0)
         + (stato.disoccupazione > 12 ? -3 : 0)
         + (rng() - 0.5) * 2,
@@ -209,7 +208,7 @@
     stato.history.push({
       turno: stato.turno,
       pil: +stato.pil.toFixed(2),
-      crescita: +(crescitaReale * 100).toFixed(2),
+      crescita: +crescitaAnnuale.toFixed(2),
       inflazione: +stato.inflazione.toFixed(2),
       disoccupazione: +stato.disoccupazione.toFixed(2),
       deficitPct: +d2.deficitPct.toFixed(2),
