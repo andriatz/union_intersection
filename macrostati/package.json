@@ -1,0 +1,10 @@
+{
+  "name": "macrostati",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gioco di macroeconomia da celular: governa Sardegna, Catalogna, Scozia o Corsica con dati reali 2024.",
+  "scripts": {
+    "test": "node --test tests/engine.test.js",
+    "serve": "python3 -m http.server 8000"
+  }
+}

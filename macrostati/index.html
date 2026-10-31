@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1020">
+<title>MacroStati — governa il tuo Stato</title>
+<meta name="description" content="Gioco di macroeconomia da celular: governa Sardegna, Catalogna, Scozia o Corsica partendo da dati reali 2024.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <section id="schermata-home" class="schermata attiva">
+    <header class="hero">
+      <h1>Macro<span>Stati</span></h1>
+      <p class="tagline">Un nuovo Stato nasce. Tu sei il governo. Dati reali 2024, 5 anni di decisioni, un solo vincitore.</p>
+    </header>
+    <h2 class="titolo-sezione">Scegli il tuo scenario</h2>
+    <div id="lista-scenari" class="lista-scenari"></div>
+    <p class="nota">Nessun login, nessuna installazione: si gioca dal browser del celular. I dati partono dal 2024 (ISTAT, Idescat, gov.scot, INSEE).</p>
+  </section>
+
+  <section id="schermata-briefing" class="schermata">
+    <div id="briefing"></div>
+    <button class="btn primario btn-grande" id="btn-inizia">Inizia a governare \u{1F3DB}\uFE0F</button>
+    <button class="btn fantasma" id="btn-torna-home">\u2190 Cambia scenario</button>
+  </section>
+
+  <section id="schermata-gioco" class="schermata">
+    <header id="barra-stato"></header>
+    <div id="pannello-evento"></div>
+    <div id="pannello-misure"></div>
+    <div id="pannello-priorita"></div>
+    <button class="btn primario btn-grande" id="btn-turno">Prossimo trimestre \u23ED\uFE0F</button>
+    <div id="log"></div>
+  </section>
+
+  <section id="schermata-fine" class="schermata">
+    <div id="fine"></div>
+    <button class="btn primario btn-grande" id="btn-rigioca">Rigioca lo stesso Stato \u{1F501}</button>
+    <button class="btn fantasma" id="btn-altro-scenario">\u{1F30D} Altro scenario</button>
+  </section>
+
+</div>
+<script src="js/scenarios.js"></script>
+<script src="js/content.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

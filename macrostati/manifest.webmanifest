@@ -1,0 +1,17 @@
+{
+  "name": "MacroStati — Gioco di macroeconomia",
+  "short_name": "MacroStati",
+  "description": "Governa uno Stato nascente (Sardegna, Catalogna, Scozia, Corsica) con dati macroeconomici reali 2024.",
+  "lang": "it",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
